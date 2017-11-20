@@ -4,7 +4,7 @@
 
 aws ec2 describe-instances --query 'Reservations[*].Instances[*].[PublicDnsName]' --output text >ec2list.txt
 
-cat ~/Desktop/AWSTUFF/ec2list.txt | while read output
+cat ~/ec2list.txt | while read output
 do
 	ping -c 1 "$output" > /dev/null
 	if [ $? -eq 0 ]; then
